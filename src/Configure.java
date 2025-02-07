@@ -1,14 +1,18 @@
-import Animals.Animals;
-import Animals.Predators.*;
-import Animals.Herbivores.*;
-import Food.Grass;
-
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Configure {
-    private final static  Map<Animals, Map<Object, Integer>> chances = new HashMap<>();
-
+    public final static  Map<Animals, Map<Object, Integer>> chances = new HashMap<>();
+    public static List<Animals> animals = new ArrayList<>();
+    public  static Cell[][]  map = new Cell[15][15];
     public static void setAnimals(){
+        animals.add(new Bear());
+        animals.add(new Duck());
+        animals.add(new Horse());
+        animals.add(new Rabbit());
+        animals.add(new Rat());
+        animals.add(new Sheep());
+        animals.add(new Wolf());
         addWolfConfigure();
         addBearConfigure();
         addHorseConfigure();
@@ -17,28 +21,8 @@ public class Configure {
         addDuckConfigure();
         addSheepConfigure();
     }
-    public static void createMap(){
-        for (int i = 0; i < Main.map.length; i++) {
-            Arrays.fill(Main.map[i], new Grass());
-        }
-    }
-    public static void spawnAnimals(){
 
-        for(var a : chances.entrySet()){
-            int x = a.getKey().getX();
-            int y = a.getKey().getY();
-            Main.map[y][x] =  a.getKey();
 
-        }
-    }
-    public static void printMap(){
-        for (int i = 0; i < Main.map.length; i++) {
-            for (int j = 0; j < Main.map[i].length; j++) {
-                System.out.print(Main.map[i][j].toString() + " ");
-            }
-            System.out.println();
-        }
-    }
     public static void addWolfConfigure() {
         Map<Object, Integer> wolfChances = new HashMap<>();
         wolfChances.put(new Horse(),10);

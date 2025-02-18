@@ -2,9 +2,9 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Configure {
-    public final static  Map<Animals, Map<Object, Integer>> chances = new HashMap<>();
+    public static  Map<Creature, Map<Creature, Integer>> chances = new HashMap<>();
     public static List<Animals> animals = new ArrayList<>();
-    public  static Cell[][]  map = new Cell[15][15];
+    public static Cell[][]  map = new Cell[15][15];
     public static void setAnimals(){
         animals.add(new Bear());
         animals.add(new Duck());
@@ -15,55 +15,33 @@ public class Configure {
         animals.add(new Wolf());
         addWolfConfigure();
         addBearConfigure();
-        addHorseConfigure();
-        addRabbitConfigure();
-        addRatConfigure();
-        addDuckConfigure();
-        addSheepConfigure();
+
+
+
     }
 
 
     public static void addWolfConfigure() {
-        Map<Object, Integer> wolfChances = new HashMap<>();
-        wolfChances.put(new Horse(),10);
-        wolfChances.put(new Rabbit(),60);
-        wolfChances.put(new Rat(),80);
-        wolfChances.put(new Duck(),40);
-        wolfChances.put(new Sheep(),70);
-        chances.put(new Wolf(), wolfChances);
+        Map<Creature, Integer> wolfChances = new HashMap<>();
+        wolfChances.put(Creature.HORSE,10);
+        wolfChances.put(Creature.RABBIT,60);
+        wolfChances.put(Creature.RAT,80);
+        wolfChances.put(Creature.DUCK,40);
+        wolfChances.put(Creature.SHEEP,70);
+        chances.put(Creature.WOLF, wolfChances);
     }
     public static void addBearConfigure(){
-        Map<Object, Integer> bearChances = new HashMap<>();
-        bearChances.put(new Horse(),40);
-        bearChances.put(new Rabbit(),80);
-        bearChances.put(new Rat(),90);
-        bearChances.put(new Duck(),10);
-        bearChances.put(new Sheep(),70);
-        chances.put(new Bear(), bearChances);
+        Map<Creature, Integer> bearChances = new HashMap<>();
+        bearChances.put(Creature.HORSE,40);
+        bearChances.put(Creature.RABBIT,80);
+        bearChances.put(Creature.RAT,90);
+        bearChances.put(Creature.DUCK,10);
+        bearChances.put(Creature.SHEEP,70);
+        chances.put(Creature.BEAR, bearChances);
     }
-    public static void addHorseConfigure(){
-        Map<Object, Integer> horseChances = new HashMap<>();
-        horseChances.put(new Grass(), 100);
-        chances.put(new Horse(),horseChances);
-    }
-    public static void addRabbitConfigure(){
-        Map<Object, Integer> RabbitChances = new HashMap<>();
-        RabbitChances.put(new Grass(), 100);
-        chances.put(new Rabbit(), RabbitChances);
-    }
-    public static void addRatConfigure(){
-        Map<Object, Integer> RatChances = new HashMap<>();
-        RatChances.put(new Grass(), 100);
-        chances.put(new Rat(), RatChances);
-    }
-    public static void addDuckConfigure(){
-        Map<Object, Integer> DuckChances = new HashMap<>();
-        DuckChances.put(new Grass(), 100);
-        chances.put(new Duck(), DuckChances);
-    }
-    public static void addSheepConfigure(){
-        Map<Object, Integer> SheepChances = new HashMap<>();
-        SheepChances.put(new Grass(), 100);
-        chances.put(new Sheep(), SheepChances);
-    }
+
+
+
+
+
 }

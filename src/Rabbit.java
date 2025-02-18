@@ -1,12 +1,9 @@
-public class Rabbit extends Animals {
+public class Rabbit extends Herbivores {
    @Override
     public int getMaxMoveEndurance(){
         return 2;
     }
-    @Override
-    public void eat() {
 
-    }
     @Override
     public int getMaxAmountOnCell(){
         return 150;
@@ -16,9 +13,15 @@ public class Rabbit extends Animals {
         return 2;
     }
     @Override
+    public int getMaxSatiety(){
+        return 50;
+    }
+    @Override
     public String toString() {
         return "\uD83D\uDC07";
     }
-
+    public Creature getCreatureType(){
+        return Creature.RABBIT;
+    }
 
 }

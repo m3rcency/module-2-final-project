@@ -1,6 +1,6 @@
 import java.util.concurrent.RecursiveTask;
 
-public class Bear extends Animals {
+public class Bear extends Predators {
     @Override
     public int getMaxMoveEndurance(){
         return 2;
@@ -14,10 +14,14 @@ public class Bear extends Animals {
         return 5;
     }
     @Override
-    public void eat(){
+    public int getMaxSatiety(){
+        return 80;
     }
     @Override
     public String toString(){
         return "\uD83D\uDC3B";
+    }
+    public Creature getCreatureType(){
+        return Creature.BEAR;
     }
 }
